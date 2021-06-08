@@ -36,25 +36,18 @@
 <section id="client-py">
 <h2>client.py<a class="headerlink" href="#client-py" title="Permalink to this headline">¶</a></h2>
 <p>Main client for interacting with Dagpi</p>
-</section>
-<span class="target" id="module-src.errors"></span><section id="errors-py">
-<h2>errors.py<a class="headerlink" href="#errors-py" title="Permalink to this headline">¶</a></h2>
-<p>Error mapping and exception handling</p>
-<dl class="py exception">
-<dt class="sig sig-object py" id="src.errors.DagpiException">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">src.errors.</span></span><span class="sig-name descname"><span class="pre">DagpiException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.errors.DagpiException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception raised as a byproduct of an API response, formatting a code with a mapped message</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.client.Client">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">src.client.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">requests.sessions.Session</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.client.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main dagpi.py user client and interface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>code</strong> – The HTTP response code from the Dagpi response</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>token</strong> – String containing your dagpi token</p></li>
+<li><p><strong>(</strong><strong>Optional</strong><strong>)</strong> (<em>session</em>) – requests.Session to be used for making HTTP requests through the ReqClient</p></li>
+</ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="src.errors.WrapperException">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">src.errors.</span></span><span class="sig-name descname"><span class="pre">WrapperException</span></span><a class="headerlink" href="#src.errors.WrapperException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base dagpi.py exception class</p>
 </dd></dl>
 
 </section>
@@ -113,16 +106,128 @@
 </dd></dl>
 
 </section>
+<span class="target" id="module-src.data"></span><section id="data-py">
+<h2>data.py<a class="headerlink" href="#data-py" title="Permalink to this headline">¶</a></h2>
+<p>Class for handling data endpoints</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.data.Data">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">src.data.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorization</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reqs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#src.reqs.ReqClient" title="src.reqs.ReqClient"><span class="pre">src.reqs.ReqClient</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for handling data endpoint functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>authorization</strong> – String containing Dagpi token</p></li>
+<li><p><strong>reqs</strong> – reqs.ReqClient object for making requests</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.eightball">
+<span class="sig-name descname"><span class="pre">eightball</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.eightball" title="Permalink to this definition">¶</a></dt>
+<dd><p>8ball</p>
+<p>Gets a random 8ball response</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.fact">
+<span class="sig-name descname"><span class="pre">fact</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.fact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fact</p>
+<p>Gets a random fun fact</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.flag">
+<span class="sig-name descname"><span class="pre">flag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag</p>
+<p>Gets random country flag and info</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.guessthelogo">
+<span class="sig-name descname"><span class="pre">guessthelogo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.guessthelogo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess The Logo</p>
+<p>Random logo game. Gets logo JSON</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.headline">
+<span class="sig-name descname"><span class="pre">headline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.headline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Headline</p>
+<p>Gets a headline. Can be either fake or real</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.joke">
+<span class="sig-name descname"><span class="pre">joke</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.joke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Joke</p>
+<p>Gets a nice edgy joke. Might be offensive/NSFW</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.pickupline">
+<span class="sig-name descname"><span class="pre">pickupline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.pickupline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pickup Line</p>
+<p>Gets a pickup line. Might be offensive/NSFW</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.roast">
+<span class="sig-name descname"><span class="pre">roast</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.roast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roast</p>
+<p>Allows you to get a roast</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.waifu">
+<span class="sig-name descname"><span class="pre">waifu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.waifu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random Waifu</p>
+<p>Random Japanese Waifu</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.wtp">
+<span class="sig-name descname"><span class="pre">wtp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.wtp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Who’s that Pokemon</p>
+<p>Allows you to get a Dagpi WTP object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data.Data.yomama">
+<span class="sig-name descname"><span class="pre">yomama</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#src.data.Data.yomama" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yomama</p>
+<p>Gets a nice yomama joke. Might be offensive/NSFW</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-src.image"></span><section id="image-py">
+<h2>image.py<a class="headerlink" href="#image-py" title="Permalink to this headline">¶</a></h2>
+<p>Class for handling image endpoints</p>
+</section>
+<span class="target" id="module-src.errors"></span><section id="errors-py">
+<h2>errors.py<a class="headerlink" href="#errors-py" title="Permalink to this headline">¶</a></h2>
+<p>Error mapping and exception handling</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="src.errors.DagpiException">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">src.errors.</span></span><span class="sig-name descname"><span class="pre">DagpiException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.errors.DagpiException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception raised as a byproduct of an API response, formatting a code with a mapped message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>code</strong> – The HTTP response code from the Dagpi response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="src.errors.WrapperException">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">src.errors.</span></span><span class="sig-name descname"><span class="pre">WrapperException</span></span><a class="headerlink" href="#src.errors.WrapperException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base dagpi.py exception class</p>
+</dd></dl>
+
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </section>
 
 

@@ -71,7 +71,7 @@ class ReqClient():
         -------
         tuple[str, bytes]
         """
-        url = f'{self.url}/image/{endpoint}'
+        url = f'{self.url}/image/{endpoint}/'
         resp = self.session.get(url, headers=self.headers, params=params)
         if 300 >= resp.status_code >= 200 and resp.headers['Content-Type'].lower() in ('image/png', 'image/gif'):
             return resp.headers['Content-Type'].replace('image/', ''), resp.content

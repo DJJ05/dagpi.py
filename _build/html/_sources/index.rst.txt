@@ -4,21 +4,18 @@ Welcome to dagpi.py's documentation!
 .. automodule:: src.client
     :members:
 
-.. automodule:: src.errors
+.. automodule:: src.reqs
     :members:
 
-.. automodule:: src.reqs
+.. automodule:: src.data
+    :members:
+
+.. automodule:: src.image
+    :members:
+
+.. automodule:: src.errors
     :members:
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

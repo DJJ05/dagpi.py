@@ -7,6 +7,12 @@ Welcome to dagpi.py's documentation!
 .. automodule:: src.reqs
     :members:
 
+.. automodule:: src.data
+    :members:
+
+.. automodule:: src.image
+    :members:
+
 .. automodule:: src.errors
     :members:
 
