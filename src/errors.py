@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+errors.py
+====================================
+Error mapping and exception handling
+"""
+
 ERROR_MAP = {
     400: 'BAD REQUEST: Data inputted was incorrect or incorrectly formatted',
     401: 'UNAUTHORIZED: Token inputted was invalid and Dagpi couldn\'t authorize you',
@@ -14,10 +20,22 @@ ERROR_MAP = {
 
 
 class WrapperException(Exception):
+    """
+    Base dagpi.py exception class
+    """
     ...
 
 
 class DagpiException(WrapperException):
+    """
+    Exception raised as a byproduct of an API response, formatting a code with a mapped message
+
+    Parameters
+    ----------
+    code
+        The HTTP response code from the Dagpi response
+    """
+
     def __init__(self, code: int) -> None:
         self.code = code
         self.cause = ERROR_MAP.get(code, "UNKNOWN: Unknown Dagpi exception thrown")
